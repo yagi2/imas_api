@@ -43,6 +43,12 @@ class Controller_Imas_Character extends Controller_Rest
       $res   = $query->execute()->as_array();
       $this->response($res);
     }
+    if ($params['c_name'] != null) {
+      $query = DB::select()->from('imas_characters')->where('character_name', $params['c_name']);
+      $res   = $query->execute()->as_array();
+      $this->response($res);
+    }
+
     /*
     if ($params['type'] != null){
       $query = DB::select()->from('imas_characters')->where('type', $params['type']);

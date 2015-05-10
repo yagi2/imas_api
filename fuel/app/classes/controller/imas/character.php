@@ -44,7 +44,7 @@ class Controller_Imas_Character extends Controller_Rest
       $this->response($res);
     }
     if ($params['c_name'] != null) {
-      $query = DB::select()->from('imas_characters')->where('character_name', $params['c_name']);
+      $query = DB::select()->from('imas_characters')->where('ch_name', $params['c_name']);
       $res   = $query->execute()->as_array();
       $this->response($res);
     }
@@ -56,7 +56,7 @@ class Controller_Imas_Character extends Controller_Rest
       $this->response($res);
       }
     if ($params['c_month'] != null){
-      $query = DB::select()->from('imas_characters')->where('character_birth_month', $params['c_month']);
+      $query = DB::select()->from('imas_characters')->where('ch_birth_month', $params['c_month']);
       $res   = $query->execute()->as_array();
       $this->response($res);
     }

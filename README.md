@@ -1,5 +1,7 @@
 #FuelPHP
 
+[![Build Status](https://travis-ci.org/yagi2/imas_api.svg?branch=master)](https://travis-ci.org/yagi2/imas_api)
+
 * Version: 1.7.2
 * [Website](http://fuelphp.com/)
 * [Release Documentation](http://docs.fuelphp.com)

@@ -1,18 +1,19 @@
 language: php
 php:
-  - 5.3
-  - 5.4
-  - 5.5
+- 5.3
+- 5.4
+- 5.5
 sudo: false
 cache:
   directories:
-    - fuel/app/vendor
-    - $HOME/.composer/cache
-
+  - fuel/app/vendor
+  - "$HOME/.composer/cache"
 before_script:
-  - $HOME/.phpenv/versions/5.5/bin/composer self-update
-  - composer --version
-  - curl -s http://getcomposer.org/installer | php
-  - php composer.phar install --dev
-
+- "$HOME/.phpenv/versions/5.5/bin/composer self-update"
+- composer --version
+- curl -s http://getcomposer.org/installer | php
+- php composer.phar install --dev
 script: php oil test
+notifications:
+  slack:
+    secure: KGp5gErFphup9WrZPL9oe00VMM0l+/9uqHpCqoT6HgHAF0o3ZrIJEv01UQ3gkFg3RJMn6GA7ccYPWy8hLg5lc8wPKc8utxHPiHKxEjrdlZnBvhZO3uHDbggZRwtjYSPkydiMBdlPXurA3rdXUfAaMZpqkDL3PcsUk6mOebsDDFNV/W/UsgIqBX4uMz1R/eu69ZxMnjSD9UdcA+VD4cUnBEipVevy/vnPqJ7Gm8CokXwHsGMWtCN5qFSo5qi7muv1B+NoWYyV1Fwd457fDl6zH8IGE9PUPDpW4Dr2LkdoHTIp814FyWDv5r3YZhd7/4iY1Y3hkt5mwWMU9YtCR5MVyz9UhtgivxR6s+XsrsfOW9/V+CkbZtXzyEEvBRGAFaJwwxbU+LuiQK1TdF954gRN4DpBTUUdWlAXNhjrmrh+0d5UKMovTfhK8J2jpGWuwagGMwIMumcCSGcEY07e4BKYqfNzhhHCI/u/4HpTMvZEzIH0IkkvlsaGtTVvRAO6zLa39KTfpcNy86Jq/r1GzJLZBikJnbCCiofvGpLw3EhmtN4YLMa0V6TNR2RhS2zZXMyNKy9t6klmhKVejCRSNRQp6pS0xVnsXbQB7K7MYWPDImXKeSQVvnLcfpzE6dP3MQRIZYMdrvo2XQKSf+pZNMi6r37RbeIOTHT/wsg+frhFGX8=

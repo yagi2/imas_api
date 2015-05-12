@@ -3,8 +3,15 @@ php:
   - 5.3
   - 5.4
   - 5.5
+sudo: false
+cache:
+  directories:
+    - fuel/app/vendor
+    - $HOME/.composer/cache
 
 before_script:
+  - $HOME/.phpenv/versions/5.5/bin/composer self-update
+  - composer --version
   - curl -s http://getcomposer.org/installer | php
   - php composer.phar install --dev
 

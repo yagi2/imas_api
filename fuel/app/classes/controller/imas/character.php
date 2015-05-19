@@ -83,6 +83,8 @@ class Controller_Imas_Character extends Controller_Rest
     $res = result_get($params, "cv_gender",      $res);
     $res = result_get($params, "cv_nickname",    $res);
 
+    $res += array('result' => count($res));
+  	
     $this->response($res);
   }
 }

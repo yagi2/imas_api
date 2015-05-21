@@ -38,5 +38,3 @@ COMMENT = 'キャラクターデータ';
 -- vagrant環境と実環境で変更
 SOURCE /var/www/html/api/SQL/imas/character_765.sql;
 SOURCE /var/www/html/api/SQL/imas/character_cinderella_cute.sql;
--- SOURCE /home/vagrant/fuelphp/SQL/imas/character_765.sql;
--- SOURCE /home/vagrant/fuelphp/SQL/imas/character_cinderella_cute.sql;

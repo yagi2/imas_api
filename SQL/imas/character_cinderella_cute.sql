@@ -158,3 +158,63 @@ INSERT INTO `imas_characters`
        (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
        VALUES
        ('シンデレラガールズ', '一ノ瀬志希', 'いちのせしき', '一ノ瀬', 'いちのせ', '志希', 'しき', 5, 30, 1, true, 'O', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+       
+-- 前川みく
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '前川みく', 'まえかわみく', '前川', 'まえかわ', 'みく', 'みく', 2, 22, 1, true, 'B', 'ピンク', '高森奈津美', 'たかもりなつみ', '高森', 'たかもり', '奈津美', 'なつみ', 2, 14, 1, 'なつ姉');
+
+-- 赤西瑛梨華
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '赤西瑛梨華', 'あかにしえりか', '赤西', 'あかにし', '瑛梨華', 'えりか', 7, 7, 1, true, 'O', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 赤西瑛梨華
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '赤西瑛梨華', 'あかにしえりか', '赤西', 'あかにし', '瑛梨華', 'えりか', 7, 7, 1, true, 'O', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 松原早耶
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '松原早耶', 'まつばらさや', '松原', 'まつばら', '早耶', 'さや', 12, 28, 1, true, 'AB', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 相原雪乃
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '相原雪乃', 'あいはらゆきの', '相原', 'あいはら', '雪乃', 'ゆきの', 2, 14, 1, true, 'A', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 宮本フレデリカ
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '宮本フレデリカ', 'みやもとふれでりか', '宮本', 'みやもと', 'フレデリカ', 'ふれでりか', 2, 14, 1, true, 'B', 'ピンク', '高野麻美', 'たかのあさみ', '高野', 'たかの', '麻美', 'あさみ', 10, 25, 1, NULL);
+
+-- 小早川紗枝
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '小早川紗枝', 'こばやかわさえ', '小早川', 'こばやかわ', '紗枝', 'さえ', 10, 18, 1, true, 'AB', 'ピンク', '立花理香', 'たちばなりか', '立花', 'たちばな', '理香', 'りか', 2, 27, 1, 'りっか様');
+
+-- 西園寺琴歌
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '西園寺琴歌', 'さいおんじことか', '西園寺', 'さいおんじ', '琴歌', 'ことか', 1, 23, 1, true, '0', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- 相原雪乃
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '双葉杏', 'ふたばあんず', '双葉', 'ふたば', '杏', 'あんず', 9, 2, 1, true, 'B', 'ピンク', '五十嵐裕美', 'いがらしひろみ', '五十嵐', 'いがらし', '裕美', 'ひろみ', 12, 13, 1, 'ゆきんこ');
+
+-- 楊菲菲
+INSERT INTO `imas_characters`
+       (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
+       VALUES
+       ('シンデレラガールズ', '楊菲菲', 'やおふぇいふぇい', '楊', 'やお', '菲菲', 'ふぇいふぇい', 9, 29, 1, true, 'O', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);

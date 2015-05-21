@@ -63,10 +63,11 @@ class Controller_Imas_Character extends Controller_Rest
     $params['cv_gender']      = Input::get('cv_gender',      null);
     $params['cv_nickname']    = Input::get('cv_nickname',    null);
    
+    $params['all']            = Input::get('all',            null);
     $res = array();
     
     // パラメータを渡さない場合はすべて返す
-    if (empty($arr)) $this->response(Model_Imas_Character::find('all'));
+    if (empty($arr) || $params['all'] != null) $res = Model_Imas_Character::find('all');
     
     $res = result_get($params, "id",             $res);
     $res = result_get($params, "type",           $res);

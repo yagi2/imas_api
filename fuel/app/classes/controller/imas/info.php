@@ -15,7 +15,19 @@ class Controller_Imas_Info extends Controller_Rest
       $result->$key = $val;
     }
     return $result;
-  } 
+  }
+  
+  public function get_debug()
+  {
+    $result['cv'] =  Model_Imas_Cv::find('all');
+    $result['character'] = Model_Imas_Character::find('all');
+    $result['nickname'] = Model_Imas_Nickname::find('all');
+    $result['production'] = Model_Imas_Production::find('all');
+    
+    $result += array('result' => count($result));
+    
+    $this->response($result); 
+  }
   
   public function get_cv()
   {

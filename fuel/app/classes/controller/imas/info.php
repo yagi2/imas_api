@@ -17,11 +17,8 @@ class Controller_Imas_Info extends Controller_Rest
   }
   
   // 無効なパラメータの存在チェック 存在していた場合は1を返す
-  public function invalid_check($all_params, $use_params)
-  {
-    // use_paramsの中身と対応するall_paramsの中身を照合していき
-    // use_paramsに存在する物をall_paramsから削除していき
-    // 最終的に all_params.length == 0 じゃないと無効なパラメータを保持している判定
+  public function invalid_check()
+  { 
     return 0;
   }
   
@@ -38,6 +35,8 @@ class Controller_Imas_Info extends Controller_Rest
   {
     // パラメータの受取
     $ipt = Input::all();
+    
+    //print_r($ipt);
     
     $ch_params['name']             = Input::get('ch_name',             null);
     $ch_params['name_ruby']        = Input::get('ch_name_ruby',        null);
@@ -57,7 +56,7 @@ class Controller_Imas_Info extends Controller_Rest
     $all_params['pd_params'] = $pd_params;
     
     // 無効なパラメータが存在していないかチェックしてから内部処理
-    if($this->invalid_check($ipt, $all_params)){
+    if($this->invalid_check()){
       $this->create_error(999, "テストエラー");
     }
     else {
@@ -67,7 +66,7 @@ class Controller_Imas_Info extends Controller_Rest
       $debug['pd_params'] = $pd_params;
       $debug += array('result' => count($ipt));
     
-      $this->response($debug);
+      $this->response($all_params);
     }
   }
   

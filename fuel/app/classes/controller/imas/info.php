@@ -4,6 +4,7 @@ class Controller_Imas_Info extends Controller_Rest
 {
   protected $format = 'json';
   
+  // デバッグ用 全データベースの全データを返す
   public function get_debug()
   {
     $result['character'] = Model_Imas_Character::find('all');
@@ -16,19 +17,41 @@ class Controller_Imas_Info extends Controller_Rest
     $this->response($result); 
   }
   
-  // 無効なパラメータの存在チェック 存在していた場合は1を返す
-  public function invalid_check()
-  { 
-    return 0;
+  // 無効なパラメータの存在チェック 存在している場合は無効なパラメータを返す そうでない場合は0を返す。
+  public function invalid_check($all_params, $use_params)
+  {
+    $result = array();
+    foreach($all_params as $a_key => $a_value){
+      $invalid_flag = true;
+      foreach($use_params as $u_key => $u_value){
+        foreach($u_value as $u_key2 => $u_value2){
+          if ($a_value == $u_value2) {
+            $invalid_flag = false;
+            break;
+          }
+        }
+        if (!($invalid_flag)) break;
+      }
+      if ($invalid_flag){
+        $result[$a_key] = $a_value;
+      }
+    }
+    
+    if (count($result) == 0){
+      return 0;
+    }
+    else {
+      return $result;
+    }
   }
   
-  // エラーメッセージを作成してjsonで返す。
-  public function create_error($code, $message)
+  // リザルトメッセージを作成する。
+  public function create_result($code, $message)
   {
-    $result['error_code'] = $code;
-    $result['message'] = $message;
+    $result['result']['code'] = $code;
+    $result['result']['message'] = $message;
     
-    $this->response($result);
+    return $result;
   }
   
   // メインAPI
@@ -36,8 +59,6 @@ class Controller_Imas_Info extends Controller_Rest
   {
     // パラメータの受取
     $ipt = Input::all();
-    
-    //print_r($ipt);
     
     $ch_params['name']             = Input::get('ch_name',             null);
     $ch_params['name_ruby']        = Input::get('ch_name_ruby',        null);
@@ -52,23 +73,37 @@ class Controller_Imas_Info extends Controller_Rest
     $pd_params['name']             = Input::get('production',          null);
     $pd_params['president']        = Input::get('president',           null);
     
-    $all_params['ch_params'] = $ch_params;
-    $all_params['cv_params'] = $cv_params;
-    $all_params['nn_params'] = $nn_params;
-    $all_params['pd_params'] = $pd_params;
+    $all_params['ch_prams'] = $ch_params;
+    $all_params['cv_prams'] = $cv_params;
+    $all_params['nn_prams'] = $nn_params;
+    $all_params['pd_prams'] = $pd_params;
+    
+    //print_r($all_params);
     
     // 無効なパラメータが存在していないかチェックしてから内部処理
-    if($this->invalid_check()){
-      $this->create_error(999, "テストエラー");
+    $invalid = $this->invalid_check($ipt, $all_params);
+    if($invalid != 0){
+      $result = $this->create_result(401, "無効なパラメータが指定されています。");
+      $result['invalid_params'] = $invalid;
+      
+      $this->response($result); 
+    }
+    else if (count($ipt) == 0){
+      $result = $this->create_result(400, "パラメータが指定されていません。");
+      
+      $this->response($result);
     }
     else {
-      $debug['ch_params'] = $ch_params;
-      $debug['cv_params'] = $cv_params;
-      $debug['nn_params'] = $nn_params;
-      $debug['pd_params'] = $pd_params;
-      $debug += array('result' => count($ipt));
+      // この部分を共通化してでメソッドで切り出したい。
+      $debug['result']['code'] = 200;
+      $debug['result']['message'] = "";
+      $debug['input_params']['ch_params'] = $ch_params;
+      $debug['input_params']['cv_params'] = $cv_params;
+      $debug['input_params']['nn_params'] = $nn_params;
+      $debug['input_params']['pd_params'] = $pd_params;
+      $debug['result']['count'] = count($ipt);
     
-      $this->response($all_params);
+      $this->response($debug);
     }
   }
 }

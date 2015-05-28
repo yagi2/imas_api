@@ -31,6 +31,7 @@ class Controller_Imas_Info extends Controller_Rest
     $this->response($result);
   }
   
+  // メインAPI
   public function get_find()
   {
     // パラメータの受取
@@ -69,75 +70,4 @@ class Controller_Imas_Info extends Controller_Rest
       $this->response($all_params);
     }
   }
-  
-  public function get_cv()
-  {
-    $this->response(Model_Imas_Cv::find('all'));
-  }
-  
-  public function get_character()
-  {
-    $this->response(Model_Imas_Character::find('all'));
-  }
-  
-  public function get_nickname()
-  {
-    $this->response(Model_Imas_Nickname::find('all'));
-  }
-  
-  public function get_prodcution()
-  {
-    $this->response(Model_Imas_Production::find('all'));
-  }
 }
-
-/*
-public function get_list()
-  {
-    
-    
-    $ipt = Input::all();
-    $arr = array_filter($ipt, 'strlen');
-
-    $params['id']             = Input::get('id',             null);
-    $params['type']           = Input::get('type',           null);
-    $params['ch_name']        = Input::get('ch_name',        null);
-    $params['ch_birth_month'] = Input::get('ch_birth_month', null);
-    $params['ch_birth_day']   = Input::get('ch_birth_day',   null);
-    $params['ch_gender']      = Input::get('ch_gender',      null);
-    $params['is_idol']        = Input::get('is_idol',        null);
-    $params['ch_blood_type']  = Input::get('ch_blood_type',  null);
-    $params['ch_color']       = Input::get('ch_color',       null);
-    $params['cv_name']        = Input::get('cv_name',        null);
-    $params['cv_birth_month'] = Input::get('cv_birth_month', null);
-    $params['cv_birth_day']   = Input::get('cv_birth_day',   null);
-    $params['cv_gender']      = Input::get('cv_gender',      null);
-    $params['cv_nickname']    = Input::get('cv_nickname',    null);
-   
-    $params['all']            = Input::get('all',            null);
-    $res = array();
-    
-    // パラメータを渡さない場合はすべて返す
-    if (empty($arr) || $params['all'] != null) $res = Model_Imas_Character::find('all');
-    
-    $res = result_get($params, "id",             $res);
-    $res = result_get($params, "type",           $res);
-    $res = result_get($params, "ch_name",        $res);
-    $res = result_get($params, "ch_birth_month", $res);
-    $res = result_get($params, "ch_birth_day",   $res);
-    $res = result_get($params, "ch_gender",      $res);
-    $res = result_get($params, "is_idol",        $res);
-    $res = result_get($params, "ch_blood_type",  $res);
-    $res = result_get($params, "ch_color",       $res);
-    $res = result_get($params, "cv_name",        $res);
-    $res = result_get($params, "cv_birth_month", $res);
-    $res = result_get($params, "cv_birth_day",   $res);
-    $res = result_get($params, "cv_gender",      $res);
-    $res = result_get($params, "cv_nickname",    $res);
-
-    $res += array('result' => count($res));
-  	
-    $this->response($res);
-  }
-}
-*/

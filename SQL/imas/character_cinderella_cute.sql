@@ -44,7 +44,7 @@ INSERT INTO `imas_characters`
        (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
        VALUES
        ('シンデレラガールズ', '持田ありさ', 'もちだありさ', '持田', 'もちだ', '亜里沙', 'ありさ', 8, 24, 1, true, 'AB', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-       
+
 -- 三村かな子
 INSERT INTO `imas_characters`
        (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
@@ -158,7 +158,7 @@ INSERT INTO `imas_characters`
        (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)
        VALUES
        ('シンデレラガールズ', '一ノ瀬志希', 'いちのせしき', '一ノ瀬', 'いちのせ', '志希', 'しき', 5, 30, 1, true, 'O', 'ピンク', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
-       
+
 -- 前川みく
 INSERT INTO `imas_characters`
        (`type`, `ch_name`, `ch_name_ruby`, `ch_family_name`, `ch_family_name_ruby`, `ch_first_name`, `ch_first_name_ruby`, `ch_birth_month`, `ch_birth_day`, `ch_gender`, `is_idol`, `ch_blood_type`, `ch_color`, `cv_name`, `cv_name_ruby`, `cv_family_name`, `cv_family_name_ruby`, `cv_first_name`, `cv_first_name_ruby`, `cv_birth_month`, `cv_birth_day`, `cv_gender`, `cv_nickname`)

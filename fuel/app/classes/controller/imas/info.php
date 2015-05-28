@@ -4,29 +4,71 @@ class Controller_Imas_Info extends Controller_Rest
 {
   protected $format = 'json';
   
-  public function object_merge(&$obj1, &$obj2, &$result)
-  {
-    $vars = get_object_vars($obj1);
-    foreach ($vars as $key => $val){
-      $result->$key = $val;
-    }
-    $vars = get_object_vars($obj2);
-    foreach ($vars as $key => $val){
-      $result->$key = $val;
-    }
-    return $result;
-  }
-  
   public function get_debug()
   {
-    $result['cv'] =  Model_Imas_Cv::find('all');
     $result['character'] = Model_Imas_Character::find('all');
+    $result['cv'] =  Model_Imas_Cv::find('all');
     $result['nickname'] = Model_Imas_Nickname::find('all');
     $result['production'] = Model_Imas_Production::find('all');
     
     $result += array('result' => count($result));
     
     $this->response($result); 
+  }
+  
+  // 無効なパラメータの存在チェック 存在していた場合は1を返す
+  public function invalid_check($all_params, $use_params)
+  {
+    // use_paramsの中身と対応するall_paramsの中身を照合していき
+    // use_paramsに存在する物をall_paramsから削除していき
+    // 最終的に all_params.length == 0 じゃないと無効なパラメータを保持している判定
+    return 0;
+  }
+  
+  // エラーメッセージを作成してjsonで返す。
+  public function create_error($code, $message)
+  {
+    $result['error_code'] = $code;
+    $result['message'] = $message;
+    
+    $this->response($result);
+  }
+  
+  public function get_find()
+  {
+    // パラメータの受取
+    $ipt = Input::all();
+    
+    $ch_params['name']             = Input::get('ch_name',             null);
+    $ch_params['name_ruby']        = Input::get('ch_name_ruby',        null);
+    $ch_params['birth_month']      = Input::get('ch_birth_month',      null);
+    $ch_params['birth_day']        = Input::get('ch_birth_day',        null);
+    $cv_params['name']             = Input::get('cv_name',             null);
+    $cv_params['name_ruby']        = Input::get('cv_name_ruby',        null);
+    $cv_params['birth_month']      = Input::get('cv_birth_month',      null);
+    $cv_params['birth_day']        = Input::get('cv_birth_day',        null);
+    $nn_params['nickname']         = Input::get('nickname',            null);
+    $pd_params['name']             = Input::get('production',          null);
+    $pd_params['president']        = Input::get('president',           null);
+    
+    $all_params['ch_params'] = $ch_params;
+    $all_params['cv_params'] = $cv_params;
+    $all_params['nn_params'] = $nn_params;
+    $all_params['pd_params'] = $pd_params;
+    
+    // 無効なパラメータが存在していないかチェックしてから内部処理
+    if($this->invalid_check($ipt, $all_params)){
+      $this->create_error(999, "テストエラー");
+    }
+    else {
+      $debug['ch_params'] = $ch_params;
+      $debug['cv_params'] = $cv_params;
+      $debug['nn_params'] = $nn_params;
+      $debug['pd_params'] = $pd_params;
+      $debug += array('result' => count($ipt));
+    
+      $this->response($debug);
+    }
   }
   
   public function get_cv()
@@ -53,31 +95,7 @@ class Controller_Imas_Info extends Controller_Rest
 /*
 public function get_list()
   {
-    // そのうちcheck_result()とresult_check()は共通部分に移す
-    // check_result() : 結果で一致一致しないものを削除
-    function check_result($param_name, $res_array, $res_array_tmp, $params) {
-      if (empty($res_array)) {
-        $res_array = $res_array_tmp;
-      }
-      else {
-        foreach ($res_array as $key => $value) {
-          if ($value[$param_name] != $params[$param_name]) unset($res_array[$key]);
-        }
-      }
-      return $res_array;
-    }
-    // result_get() : DBからする結果を取得する
-    function result_get($params, $param_key, $res_array) {
-      if ($params[$param_key] != null) {
-        $query = DB::select()->from('imas_characters')->where($param_key, $params[$param_key]);
-        $res_tmp = $query->execute()->as_array();
-        
-        $res_array = check_result($param_key, $res_array, $res_tmp, $params);
-        
-        return $res_array;
-      }
-      return $res_array;
-    }
+    
     
     $ipt = Input::all();
     $arr = array_filter($ipt, 'strlen');

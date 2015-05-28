@@ -16,6 +16,7 @@ class Model_Imas_Character extends \Orm\Model
 		'birth_day',
 		'gender',
 		'is_idol',
+		'type',
 	);
 	protected static $_table_name = 'imas_characters';
 

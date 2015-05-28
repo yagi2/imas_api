@@ -43,6 +43,7 @@ class Controller_Imas_Info extends Controller_Rest
     $ch_params['name_ruby']        = Input::get('ch_name_ruby',        null);
     $ch_params['birth_month']      = Input::get('ch_birth_month',      null);
     $ch_params['birth_day']        = Input::get('ch_birth_day',        null);
+    $ch_params['type']             = Input::get('type',                null);
     $cv_params['name']             = Input::get('cv_name',             null);
     $cv_params['name_ruby']        = Input::get('cv_name_ruby',        null);
     $cv_params['birth_month']      = Input::get('cv_birth_month',      null);

@@ -17,4 +17,4 @@ CREATE TABLE IF NOT EXISTS `imas_nicknames`(
 COMMENT = 'ニックネームデータ';
 
 -- 実データの流し込み
-SOURCE /var/www/html/api/SQL/imas/proto_nickname.sql
+SOURCE /var/www/html/api/SQL/imas/others/nickname.sql

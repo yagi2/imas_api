@@ -3,10 +3,10 @@ SET NAMES utf8;
 USE `fuel_dev`;
 
 -- 既存テーブルの削除
-DROP TABLE IF EXISTS `imas_idols`;
+DROP TABLE IF EXISTS `imas_characters`;
 
 -- テーブル定義
-CREATE TABLE IF NOT EXISTS `imas_idols`(
+CREATE TABLE IF NOT EXISTS `imas_characters`(
        `id` INT NOT NULL AUTO_INCREMENT COMMENT '連番ID',
        `production_id` INT COMMENT 'プロダクションID',
        `cv_id` INT COMMENT '声優ID',
@@ -25,4 +25,4 @@ CREATE TABLE IF NOT EXISTS `imas_idols`(
 COMMENT = 'キャラクターデータ';
 
 -- 実データの流し込み
-SOURCE /var/www/html/api/SQL/imas/proto_idol_765.sql
+SOURCE /var/www/html/api/SQL/imas/characters/character_765.sql

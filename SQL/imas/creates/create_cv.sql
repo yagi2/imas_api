@@ -23,4 +23,4 @@ CREATE TABLE IF NOT EXISTS `imas_cvs`(
 COMMENT = '声優データ';
 
 -- 実データの流し込み
-SOURCE /var/www/html/api/SQL/imas/proto_cv.sql
+SOURCE /var/www/html/api/SQL/imas/others/cv.sql

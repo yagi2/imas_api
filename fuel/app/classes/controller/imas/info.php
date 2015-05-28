@@ -1,6 +1,6 @@
 <?php
 
-class Controller_Imas_Character extends Controller_Rest
+class Controller_Imas_Info extends Controller_Rest
 {
   protected $format = 'json';
   
@@ -16,8 +16,30 @@ class Controller_Imas_Character extends Controller_Rest
     }
     return $result;
   } 
- 
-  public function get_list()
+  
+  public function get_cv()
+  {
+    $this->response(Model_Imas_Cv::find('all'));
+  }
+  
+  public function get_character()
+  {
+    $this->response(Model_Imas_Character::find('all'));
+  }
+  
+  public function get_nickname()
+  {
+    $this->response(Model_Imas_Nickname::find('all'));
+  }
+  
+  public function get_prodcution()
+  {
+    $this->response(Model_Imas_Production::find('all'));
+  }
+}
+
+/*
+public function get_list()
   {
     // そのうちcheck_result()とresult_check()は共通部分に移す
     // check_result() : 結果で一致一致しないものを削除
@@ -89,3 +111,4 @@ class Controller_Imas_Character extends Controller_Rest
     $this->response($res);
   }
 }
+*/

@@ -15,4 +15,4 @@ CREATE TABLE IF NOT EXISTS `imas_productions`(
 COMMENT = 'プロダクションデータ';
 
 -- 実データの流し込み
-SOURCE /var/www/html/api/SQL/imas/proto_production.sql
+SOURCE /var/www/html/api/SQL/imas/others/production.sql

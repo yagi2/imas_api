@@ -30,10 +30,10 @@ INSERT INTO `imas_productions`
 INSERT INTO `imas_productions`
        (`name`, `president`)
        VALUES
-       ('765プロダクション', null);
+       ('346プロダクション', null);
  
 -- 315プロダクション
 INSERT INTO `imas_productions`
        (`name`, `president`)
        VALUES
-       ('765プロダクション', null);
+       ('315プロダクション', null);

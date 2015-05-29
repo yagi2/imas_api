@@ -32,9 +32,7 @@ class Controller_Imas_Info extends Controller_Rest
         }
         if (!($invalid_flag)) break;
       }
-      if ($invalid_flag){
-        $result[$a_key] = $a_value;
-      }
+      if ($invalid_flag || $a_value == null) $result[$a_key] = $a_value;
     }
     
     if (count($result) == 0){
@@ -77,8 +75,6 @@ class Controller_Imas_Info extends Controller_Rest
     $all_params['cv_prams'] = $cv_params;
     $all_params['nn_prams'] = $nn_params;
     $all_params['pd_prams'] = $pd_params;
-    
-    //print_r($all_params);
     
     // 無効なパラメータが存在していないかチェックしてから内部処理
     $invalid = $this->invalid_check($ipt, $all_params);

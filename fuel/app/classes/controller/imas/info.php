@@ -91,15 +91,23 @@ class Controller_Imas_Info extends Controller_Rest
     }
     else {
       // この部分を共通化してでメソッドで切り出したい。
-      $debug['result']['code'] = 200;
-      $debug['result']['message'] = "";
-      $debug['input_params']['ch_params'] = $ch_params;
-      $debug['input_params']['cv_params'] = $cv_params;
-      $debug['input_params']['nn_params'] = $nn_params;
-      $debug['input_params']['pd_params'] = $pd_params;
-      $debug['result']['count'] = count($ipt);
+      $result['result']['code'] = 200;
+      $result['result']['message'] = "";
+      $result['input_params'] = $ipt;
+      
+      // ここでパラメータに合ったキャラクターデータ，声優データ，ニックネームデータ，プロダクションデータを返す。
+      $result['list']['character'] = DB::select()->from('imas_characters')->where('name', $ch_params['name'])->execute()->as_array();
+      $result['list']['cv'] = DB::select()->from('imas_cvs')->where('name', $cv_params['name'])->execute()->as_array();
+      $result['list']['nickname'] = DB::select()->from('imas_nicknames')->where('nickname', $nn_params['nickname'])->execute()->as_array();
+      $result['list']['production'] = DB::select()->from('imas_productions')->where('name', $pd_params['name'])->execute()->as_array();
+      
+      // 返却数
+      $result['result']['count']['character']  = count($result['list']['character']);
+      $result['result']['count']['cv']         = count($result['list']['cv']);
+      $result['result']['count']['nickname']   = count($result['list']['nickname']);
+      $result['result']['count']['production'] = count($result['list']['production']);
     
-      $this->response($debug);
+      $this->response($result);
     }
   }
 }

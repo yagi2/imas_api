@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS `imas_characters`(
        `birth_day` INT NOT NULL COMMENT '誕生日',
        `gender` VARCHAR(20) NOT NULL COMMENT '性別 male or female',
        `is_idol` INT NOT NULL COMMENT 'アイドルか 0:そうでない 1:そうである',
+       `blood_type` VARCHAR(10) COMMENT '血液型',
+       `color` VARCHAR(20) COMMENT 'キャラの色', 
        `type` VARCHAR(20) COMMENT 'アイドル属性',
        PRIMARY KEY(`id`)
 )

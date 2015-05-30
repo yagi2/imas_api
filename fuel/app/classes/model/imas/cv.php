@@ -5,6 +5,7 @@ class Model_Imas_Cv extends \Orm\Model
 	protected static $_properties = array(
 		'id',
 		'name',
+		'other_name',
 		'name_ruby',
 		'family_name',
 		'family_name_ruby',

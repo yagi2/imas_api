@@ -9,6 +9,7 @@ DROP TABLE IF EXISTS `imas_cvs`;
 CREATE TABLE IF NOT EXISTS `imas_cvs`(
        `id` INT NOT NULL AUTO_INCREMENT COMMENT '連番ID',
        `name` VARCHAR(50) NOT NULL COMMENT '声優名',
+       `other_name` VARCHAR(50) COMMENT '他の芸名',
        `name_ruby` VARCHAR(100) NOT NULL COMMENT '声優名ふりがな',
        `family_name` VARCHAR(50) NOT NULL COMMENT '声優苗字',
        `family_name_ruby` VARCHAR(100) NOT NULL COMMENT '声優苗字ふりがな',

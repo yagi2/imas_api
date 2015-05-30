@@ -116,6 +116,16 @@ class Controller_Imas_Info extends Controller_Rest
         $result['result']['count'][$key] = count($result['list'][$key]);
       }
       
+      // 一致するデータがない場合
+      $empty_flag = true;
+      foreach($result['list'] as $key => $value) {
+        if (count($result['list'][$key]) != 0) $empty_flag = false;
+      }
+      if ($empty_flag == true) {
+        $result = $this->create_result(402, "一致するデータがありません。");
+        $result['input_params'] = $ipt;
+      }
+      
       $this->response($result);
       
     }

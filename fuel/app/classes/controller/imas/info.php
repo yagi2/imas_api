@@ -52,29 +52,41 @@ class Controller_Imas_Info extends Controller_Rest
     return $result;
   }
   
+  public function find_data($ch_params, $table) {
+    $result = array();
+    
+    foreach($ch_params as $key => $value){
+      if($value != null) $result += DB::select()->from($table)->where($key, $value)->execute()->as_array();  
+    }
+    
+    return $result;
+  }
+  
   // メインAPI
   public function get_find()
   {
     // パラメータの受取
     $ipt = Input::all();
     
-    $ch_params['name']             = Input::get('ch_name',             null);
-    $ch_params['name_ruby']        = Input::get('ch_name_ruby',        null);
-    $ch_params['birth_month']      = Input::get('ch_birth_month',      null);
-    $ch_params['birth_day']        = Input::get('ch_birth_day',        null);
-    $ch_params['type']             = Input::get('type',                null);
-    $cv_params['name']             = Input::get('cv_name',             null);
-    $cv_params['name_ruby']        = Input::get('cv_name_ruby',        null);
-    $cv_params['birth_month']      = Input::get('cv_birth_month',      null);
-    $cv_params['birth_day']        = Input::get('cv_birth_day',        null);
-    $nn_params['nickname']         = Input::get('nickname',            null);
-    $pd_params['name']             = Input::get('production',          null);
-    $pd_params['president']        = Input::get('president',           null);
+    $params['character']['name']             = Input::get('ch_name',             null);
+    $params['character']['name_ruby']        = Input::get('ch_name_ruby',        null);
+    $params['character']['birth_month']      = Input::get('ch_birth_month',      null);
+    $params['character']['birth_day']        = Input::get('ch_birth_day',        null);
+    $params['character']['blood_type']       = Input::get('ch_blood_type',       null);
+    $params['character']['color']            = Input::get('ch_color',            null);
+    $params['character']['type']             = Input::get('type',                null);
+    $params['cv']['name']                    = Input::get('cv_name',             null);
+    $params['cv']['name_ruby']               = Input::get('cv_name_ruby',        null);
+    $params['cv']['birth_month']             = Input::get('cv_birth_month',      null);
+    $params['cv']['birth_day']               = Input::get('cv_birth_day',        null);
+    $params['nickname']['nickname']          = Input::get('nickname',            null);
+    $params['production']['name']            = Input::get('production',          null);
+    $params['production']['president']       = Input::get('president',           null);
     
-    $all_params['ch_prams'] = $ch_params;
-    $all_params['cv_prams'] = $cv_params;
-    $all_params['nn_prams'] = $nn_params;
-    $all_params['pd_prams'] = $pd_params;
+    $all_params['ch_params'] = $params['character'];
+    $all_params['cv_params'] = $params['cv'];
+    $all_params['nn_params'] = $params['nickname'];
+    $all_params['pd_params'] = $params['production'];
     
     // 無効なパラメータが存在していないかチェックしてから内部処理
     $invalid = $this->invalid_check($ipt, $all_params);
@@ -91,23 +103,21 @@ class Controller_Imas_Info extends Controller_Rest
     }
     else {
       // この部分を共通化してでメソッドで切り出したい。
-      $result['result']['code'] = 200;
-      $result['result']['message'] = "";
+      $result = $this->create_result(200, "");
       $result['input_params'] = $ipt;
       
       // ここでパラメータに合ったキャラクターデータ，声優データ，ニックネームデータ，プロダクションデータを返す。
-      $result['list']['character'] = DB::select()->from('imas_characters')->where('name', $ch_params['name'])->execute()->as_array();
-      $result['list']['cv'] = DB::select()->from('imas_cvs')->where('name', $cv_params['name'])->execute()->as_array();
-      $result['list']['nickname'] = DB::select()->from('imas_nicknames')->where('nickname', $nn_params['nickname'])->execute()->as_array();
-      $result['list']['production'] = DB::select()->from('imas_productions')->where('name', $pd_params['name'])->execute()->as_array();
+      foreach($params as $key => $value) {
+          $result['list'][$key] = $this->find_data($params[$key], 'imas_'.$key.'s');
+      }
       
       // 返却数
-      $result['result']['count']['character']  = count($result['list']['character']);
-      $result['result']['count']['cv']         = count($result['list']['cv']);
-      $result['result']['count']['nickname']   = count($result['list']['nickname']);
-      $result['result']['count']['production'] = count($result['list']['production']);
-    
+      foreach($result['list'] as $key => $value) {
+        $result['result']['count'][$key] = count($result['list'][$key]);
+      }
+      
       $this->response($result);
+      
     }
   }
 }

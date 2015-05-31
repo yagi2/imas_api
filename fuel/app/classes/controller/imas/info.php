@@ -90,16 +90,11 @@ class Controller_Imas_Info extends Controller_Rest
     
     // 無効なパラメータが存在していないかチェックしてから内部処理
     $invalid = $this->invalid_check($ipt, $all_params);
-    if($invalid != 0){
-      $result = $this->create_result(401, "無効なパラメータが指定されています。");
+    if($invalid != 0 || count($ipt) == 0){
+      $result = $this->create_result(401, "無効なパラメータが指定されているか，パラメータが空です。");
       $result['invalid_params'] = $invalid;
       
       $this->response($result); 
-    }
-    else if (count($ipt) == 0){
-      $result = $this->create_result(400, "パラメータが指定されていません。");
-      
-      $this->response($result);
     }
     else {
       // この部分を共通化してでメソッドで切り出したい。
@@ -122,12 +117,11 @@ class Controller_Imas_Info extends Controller_Rest
         if (count($result['list'][$key]) != 0) $empty_flag = false;
       }
       if ($empty_flag == true) {
-        $result = $this->create_result(402, "一致するデータがありません。");
+        $result = $this->create_result(401, "一致するデータがありません。");
         $result['input_params'] = $ipt;
       }
       
-      $this->response($result);
-      
+      $this->response($result); 
     }
   }
 }

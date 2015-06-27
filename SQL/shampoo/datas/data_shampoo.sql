@@ -11,4 +11,8 @@ INSERT INTO `sh_shampoo_list`
        (`sh_id`, `name`)
        VALUES
        (1, 'レヴール');
-       
+
+INSERT INTO `sh_shampoo_list`
+       (`sh_id`, `name`)
+       VALUES
+       (2, 'HandS');

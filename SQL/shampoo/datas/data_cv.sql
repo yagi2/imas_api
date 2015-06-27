@@ -5,5 +5,5 @@ USE `fuel_dev`;
 INSERT INTO `sh_cv_list`
        (`sh_id`, `name`)
        VALUES
-       (1, '沼倉愛美');
+       (2, 'うなすけ');
        

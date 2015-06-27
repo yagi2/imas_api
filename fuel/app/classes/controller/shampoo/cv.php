@@ -48,7 +48,7 @@ class Controller_Shampoo_Cv extends Controller_Rest
     $this->response($result); 
   }
   
-  // 声優からシャンプー検索
+  // シャンプー検索
   public function get_cv ()
   {
     $ipt = Input::all();
@@ -89,7 +89,7 @@ class Controller_Shampoo_Cv extends Controller_Rest
     }
   }
   
-  // シャンプーから声優検索
+  // 使用者検索
   public function get_shampoo ()
   {
     $ipt = Input::all();
@@ -131,6 +131,12 @@ class Controller_Shampoo_Cv extends Controller_Rest
         // 要素カウント
         foreach($result['list'] as $key => $value) {
           $result['result']['count']['cv'] = count($result['list']['cv']);
+        }
+        
+        // 結果がないとき
+        if ($result['result']['count']['cv'] == 0) {
+          $result = $this->create_result(401, "一致するデータがありません。");
+          $result['input_params'] = $ipt;
         }
       }
       $this->response($result);
